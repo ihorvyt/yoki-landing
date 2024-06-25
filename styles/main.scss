@@ -43,8 +43,8 @@
         &:before {
           position: absolute;
           content: "";
-          width: 604px;
-          height: 604px;
+          width: 26vw;
+          height: 26vw;
           border-radius: 1046px;
           background: #FFF3E5;
           filter: blur(118.5px);
@@ -67,8 +67,8 @@
         &:before {
           position: absolute;
           content: "";
-          width: 1046px;
-          height: 1046px;
+          width: 30vw;
+          height: 30vw;
           flex-shrink: 0;
           border-radius: 1046px;
           background: #FFF3E5;
@@ -119,8 +119,8 @@
     position: absolute;
     top: 100%;
     content: "";
-    width: 604px;
-    height: 604px;
+    width: 24vw;
+    height: 24vw;
 
     border-radius: 604px;
     background: #FFE3C4;
@@ -199,8 +199,8 @@
     top: 20%;
     right: 0;
     content: "";
-    width: 1046px;
-    height: 1046px;
+    width: 45vw;
+    height: 45vw;
 
     border-radius: 1046px;
     background: #FFF3E5;
@@ -211,8 +211,8 @@
   &:before {
     position: absolute;
     content: "";
-    width: 1046px;
-    height: 1046px;
+    width: 45vw;
+    height: 45vw;
     flex-shrink: 0;
     border-radius: 1046px;
     background: #FFF3E5;
@@ -246,8 +246,8 @@
     top: 65%;
     right: 28%;
     content: "";
-    width: 530px;
-    height: 530px;
+    width: 29vw;
+    height: 29vw;
 
     border-radius: 530px;
     background: #FFF3E5;
@@ -282,8 +282,8 @@
     top: 65%;
     right: 0%;
     content: "";
-    width: 1046px;
-    height: 1046px;
+    width: 35vw;
+    height: 35vw;
 
     border-radius: 530px;
     background: #FFF3E5;

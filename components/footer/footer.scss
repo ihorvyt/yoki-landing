@@ -97,7 +97,26 @@ footer {
 
 @media (max-width: 768px) {
   footer {
+    position: relative;
+    justify-content: flex-end;
+
     &:before {
+      position: absolute;
+      top: unset;
+      bottom: 10px;
+      left: 50%;
+
+      transform: translate(-50%, 0%);
+
+      height: 85%;
+      width: 200vw;
+
+      background-color: $primaryYellow ;
+      content: "";
+
+      z-index: -1;
+
+      border-radius: 80% 80% 0px 0px;
     }
 
     .links {
