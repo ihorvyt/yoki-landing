@@ -166,10 +166,14 @@ class SectionScroller {
 }
 
 // Usage
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
+    initializeScroller();
+});
+
+function initializeScroller() {
     const phoneContainer = document.querySelector('.phone-container');
     const widthHeight = window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight);
-    const normanlWidthHeight =  widthHeight - widthHeight * 0.05
+    const normanlWidthHeight = widthHeight - widthHeight * 0.05;
 
     const scroller = new SectionScroller({
         scrollSensitivity: 1.5,
@@ -183,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { x: -16, y: 2.5, width: 55, od: "dvw", br: 6.5 }, // find your ideal
             { x: -30, y: 2.5, width: normanlWidthHeight, od: "px", br: 5 }, // explore
             { x: -30, y: 2.5, width: normanlWidthHeight, od: "px" }, // found
-            { x: -16, y: -68, width: 55, od: "dvw",  br: 6.5 }, // now sent
+            { x: -16, y: -68, width: 55, od: "dvw", br: 6.5 }, // now sent
             { x: -30, y: 2.5, width: normanlWidthHeight, od: "px" }, // tell about yourself
             { x: 300, y: -2.5, width: normanlWidthHeight, od: "px" },
             { x: 300, y: -2.5, width: normanlWidthHeight, od: "px" },
@@ -197,16 +201,16 @@ document.addEventListener('DOMContentLoaded', () => {
             { x: -50, y: 42, width: 90, od: "dvw", br: 6.5 }, // find your ideal
             { x: -50, y: 28, width: normanlWidthHeight - normanlWidthHeight * 0.25, od: "px", br: 5 }, // explore
             { x: -50, y: 35, width: normanlWidthHeight - normanlWidthHeight * 0.25, od: "px" }, // found
-            { x: -50, y: -35, width: 90, od: "dvw",  br: 6.5 }, // now sent
-            { x: -20, y: 2.5, width: normanlWidthHeight, od: "px", }, // tell about yourself
+            { x: -50, y: -35, width: 90, od: "dvw", br: 6.5 }, // now sent
+            { x: -20, y: 2.5, width: normanlWidthHeight, od: "px" }, // tell about yourself
             { x: 300, y: -2.5, width: 90, od: "dvw" },
             { x: 300, y: -2.5, width: 90, od: "dvw" },
         ],
         imageMappings: [
             0, // main
             1, // Show photo2 in section 1
-            1,  // Show photo3 in section 2
-            1,  // Show photo3 in section 2
+            1, // Show photo3 in section 2
+            1, // Show photo3 in section 2
             2, // find what
             3, // find ideal
             4, // explore
@@ -220,4 +224,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Current section index:', scroller.getCurrentSectionIndex());
     console.log('Current section element:', scroller.getCurrentSectionElement());
-});
+}
