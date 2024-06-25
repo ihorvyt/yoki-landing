@@ -12,38 +12,71 @@
   flex-direction: column;
   overflow-y: scroll;
 }
-
-section {
-  border: 1px solid black;
-}
+//
+//section {
+//  border: 1px solid black;
+//}
 
 
 
 .main-section {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 
   .head-screen {
     display: flex;
     justify-content: space-between;
     padding: 0px 55px 0px 55px;
+    position: relative;
 
     .text-content {
       &:first-child {
         width: 28%;
         margin-top: 3%;
+        position: relative;
 
         h2 {
           line-height: 3.52vw;
         }
+
+        &:before {
+          position: absolute;
+          content: "";
+          width: 604px;
+          height: 604px;
+          border-radius: 1046px;
+          background: #FFF3E5;
+          filter: blur(118.5px);
+          z-index: -1;
+
+          top: 70%;
+          left: -90%;
+        }
+
       }
 
       &:last-child {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 10px;
         height: fit-content;
         margin: calc((100vh - 131px) / 2 - 262px) 0 auto 0;
+
+        &:before {
+          position: absolute;
+          content: "";
+          width: 1046px;
+          height: 1046px;
+          flex-shrink: 0;
+          border-radius: 1046px;
+          background: #FFF3E5;
+          filter: blur(118.5px);
+          z-index: -1;
+
+          left: 0;
+        }
 
         h1 {
           //font-size: 7.813rem;
@@ -82,6 +115,21 @@ section {
    padding: 0px 50px 0px 50px;
   position: relative;
 
+  &:before {
+    position: absolute;
+    top: 100%;
+    content: "";
+    width: 604px;
+    height: 604px;
+
+    border-radius: 604px;
+    background: #FFE3C4;
+    filter: blur(118.5px);
+    z-index: -1;
+
+    left: 0;
+  }
+
   .fp-tableCell {
     display: flex;
     justify-content: flex-start;
@@ -93,6 +141,7 @@ section {
     flex-direction: column;
     justify-content: center;
     width: 50%;
+
 
     &.tell_text {
       position: absolute;
@@ -143,6 +192,34 @@ section {
   display: flex;
   padding: 0px 50px 0px 50px;
   align-items: center;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    content: "";
+    width: 1046px;
+    height: 1046px;
+
+    border-radius: 1046px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    width: 1046px;
+    height: 1046px;
+    flex-shrink: 0;
+    border-radius: 1046px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+    right: 0;
+  }
 
   .fp-tableCell {
     display: flex;
@@ -162,6 +239,21 @@ section {
   display: flex;
   align-items: center;
   padding: 0px 50px 0px 50px;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 65%;
+    right: 28%;
+    content: "";
+    width: 530px;
+    height: 530px;
+
+    border-radius: 530px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+  }
 
   .fp-tableCell {
     display: flex;
@@ -182,6 +274,22 @@ section {
   gap: 10vh;
 
   padding: 0px 50px 0px 50px;
+
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 65%;
+    right: 0%;
+    content: "";
+    width: 1046px;
+    height: 1046px;
+
+    border-radius: 530px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+  }
 
   .fp-tableCell {
     display: flex;
@@ -311,7 +419,7 @@ section {
   height: auto;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 4%);
+  transform: translate(-42%, 4%);
   transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
 
   .phone {
@@ -324,7 +432,7 @@ section {
       width: 98%;
       left: 0px;
       //border: 2px solid black;
-      border-radius: 5vw;
+      border-radius: 5%;
       overflow: hidden;
       background: #fff;
 
@@ -359,8 +467,8 @@ section {
       }
 
       .photo5 {
-        top: -5px;
-        scale: 0.959;
+        top: 0px;
+        scale: 0.95;
       }
 
       .photo6 {
@@ -409,21 +517,15 @@ section {
       transform: translateX(50%);
     }
 
-    .content {
-      height: 95vh;
-      overflow: hidden;
-      border-radius: 5vw;
-    }
 
     .content {
       position: absolute;
       top: 0;
       height: 100%;
       width: 99%;
-      border: 2px solid pink;
-      border-radius: 4.4vw;
+      border-radius: 4.4%;
       overflow: hidden;
-      background: pink;
+      background: white;
       z-index: -1;
 
       img {

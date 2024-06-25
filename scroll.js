@@ -185,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { x: -30, y: 2.5, width: normanlWidthHeight, od: "px" }, // found
             { x: -16, y: -68, width: 55, od: "dvw",  br: 6.5 }, // now sent
             { x: -30, y: 2.5, width: normanlWidthHeight, od: "px" }, // tell about yourself
-            { x: -50, y: 250, width: normanlWidthHeight, od: "px" },
-            { x: -50, y: 250, width: normanlWidthHeight, od: "px" },
+            { x: 300, y: -2.5, width: normanlWidthHeight, od: "px" },
+            { x: 300, y: -2.5, width: normanlWidthHeight, od: "px" },
         ],
         mobilePhoneStyles: [
             { x: -50, y: 55, width: 90, od: "dvw" }, // main
@@ -195,12 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
             { x: -75, y: 40, width: normanlWidthHeight - normanlWidthHeight * 0.35, od: "px", br: 5 }, // badge
             { x: -50, y: 30, width: normanlWidthHeight - normanlWidthHeight * 0.25, od: "px", br: 5 }, // now let find
             { x: -50, y: 42, width: 90, od: "dvw", br: 6.5 }, // find your ideal
-            { x: -50, y: 35, width: normanlWidthHeight - normanlWidthHeight * 0.25, od: "px", br: 5 }, // explore
+            { x: -50, y: 28, width: normanlWidthHeight - normanlWidthHeight * 0.25, od: "px", br: 5 }, // explore
             { x: -50, y: 35, width: normanlWidthHeight - normanlWidthHeight * 0.25, od: "px" }, // found
-            { x: -50, y: -55, width: 90, od: "dvw",  br: 6.5 }, // now sent
+            { x: -50, y: -35, width: 90, od: "dvw",  br: 6.5 }, // now sent
             { x: -20, y: 2.5, width: normanlWidthHeight, od: "px", }, // tell about yourself
-            { x: -50, y: 200, width: 90, od: "dvw" },
-            { x: -50, y: 200, width: 90, od: "dvw" },
+            { x: 300, y: -2.5, width: 90, od: "dvw" },
+            { x: 300, y: -2.5, width: 90, od: "dvw" },
         ],
         imageMappings: [
             0, // main

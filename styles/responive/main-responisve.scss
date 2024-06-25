@@ -306,7 +306,7 @@
     top: 0;
     z-index: -1;
 
-    transform: translate(0%, 0%);
+    transform: translate(-50%, 100%);
 
     .phone {
       .content {
@@ -316,7 +316,7 @@
 
     .secondary-phone .content {
       height: 60vh;
-      border-radius: 11vw;
+      border-radius: 8vw;
 
       img {
         width: 98%;
