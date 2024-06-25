@@ -75,7 +75,7 @@ class SectionScroller {
         const style = this.currentPhoneStyles[index] || { x: 0, y: 0, width: 100, od: 'dvw' };
         this.phone.style.transform = `translate(${style.x}%, ${style.y}%)`;
         this.phone.style.width = `${style.width}${style.od}`;
-        this.phoneOverflow.style.borderRadius = `${style.br}dvw`;
+        this.phoneOverflow.style.borderRadius = `${style.br}%`;
         console.log(`Phone animation to position X: ${style.x}%, Y: ${style.y}%, Width: ${style.width}${style.od}`);
     }
 
