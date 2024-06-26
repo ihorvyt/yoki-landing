@@ -5,6 +5,7 @@ class SectionScroller {
         this.phoneOverflow = document.querySelector('#phoneOverflow');
         this.secondaryPhone = document.querySelector('.secondary-phone');
         this.animatedText = document.querySelector('.tell_text');
+
         this.currentSectionIndex = 0;
         this.isScrolling = false;
         this.touchStartY = 0;
@@ -23,16 +24,26 @@ class SectionScroller {
         this.addEventListeners();
         this.resizeSections();
         this.checkViewport();
+        this.applyStyles();
         this.moveToSection(this.currentSectionIndex);
     }
 
     addEventListeners() {
-        window.addEventListener('wheel', this.handleScroll.bind(this), { passive: false });
+        window.addEventListener('wheel', this.debounce(this.handleScroll.bind(this), 100), { passive: false });
         window.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
-        window.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
+        window.addEventListener('touchmove', this.debounce(this.handleTouchMove.bind(this), 100), { passive: false });
         window.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
-        window.addEventListener('resize', this.resizeSections.bind(this));
-        window.addEventListener('resize', this.checkViewport.bind(this));
+        window.addEventListener('resize', this.debounce(this.resizeSections.bind(this), 100));
+        window.addEventListener('resize', this.debounce(this.checkViewport.bind(this), 100));
+    }
+
+    debounce(func, delay) {
+        let debounceTimer;
+        return function(...args) {
+            const context = this;
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => func.apply(context, args), delay);
+        };
     }
 
     smoothScroll(targetPosition) {
@@ -40,11 +51,9 @@ class SectionScroller {
         const distance = targetPosition - startPosition;
         let startTime = null;
 
-        const easeInOutQuad = (t) => {
-            return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-        };
+        const easeInOutQuad = t => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
-        const animation = (currentTime) => {
+        const animation = currentTime => {
             if (startTime === null) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
             const run = easeInOutQuad(timeElapsed / this.scrollDuration) * distance + startPosition;
@@ -61,30 +70,25 @@ class SectionScroller {
 
         const targetPosition = this.sections[index].offsetTop;
         this.smoothScroll(targetPosition);
-        this.animatePhone(index);
-        this.updatePhoneImage(index);
-        this.updateSecondaryPhone(index);
-        this.animateText(index)
+        this.updateVisuals(index);
 
         setTimeout(() => {
             this.isScrolling = false;
         }, this.scrollDuration);
     }
 
+    updateVisuals(index) {
+        this.animatePhone(index);
+        this.updatePhoneImage(index);
+        this.updateSecondaryPhone(index);
+        this.animateText(index);
+    }
+
     animatePhone(index) {
-        const style = this.currentPhoneStyles[index] || { x: 0, y: 0, width: 100, od: 'dvw' };
+        const style = this.phoneStyles[index] || { x: 0, y: 0, width: 100, od: 'dvw', br: 0 };
         this.phone.style.transform = `translate(${style.x}%, ${style.y}%)`;
         this.phone.style.width = `${style.width}${style.od}`;
         this.phoneOverflow.style.borderRadius = `${style.br}%`;
-        console.log(`Phone animation to position X: ${style.x}%, Y: ${style.y}%, Width: ${style.width}${style.od}`);
-    }
-
-    checkViewport() {
-        if (window.innerWidth <= 768) {
-            this.currentPhoneStyles = this.mobilePhoneStyles;
-        } else {
-            this.currentPhoneStyles = this.phoneStyles;
-        }
     }
 
     updatePhoneImage(index) {
@@ -116,11 +120,11 @@ class SectionScroller {
 
     handleScroll(event) {
         event.preventDefault();
-
         if (this.isScrolling) return;
 
         const direction = event.deltaY > 0 ? 1 : -1;
-        if ((direction > 0 && this.currentSectionIndex < this.sections.length - 1) || (direction < 0 && this.currentSectionIndex > 0)) {
+        if ((direction > 0 && this.currentSectionIndex < this.sections.length - 1) ||
+            (direction < 0 && this.currentSectionIndex > 0)) {
             this.currentSectionIndex += direction;
             this.moveToSection(this.currentSectionIndex);
         }
@@ -131,7 +135,7 @@ class SectionScroller {
     }
 
     handleTouchMove(event) {
-        event.preventDefault(); // Prevent default scrolling
+        event.preventDefault();
     }
 
     handleTouchEnd(event) {
@@ -139,7 +143,8 @@ class SectionScroller {
         const direction = this.touchStartY - touchEndY > 0 ? 1 : -1;
         if (this.isScrolling) return;
 
-        if ((direction > 0 && this.currentSectionIndex < this.sections.length - 1) || (direction < 0 && this.currentSectionIndex > 0)) {
+        if ((direction > 0 && this.currentSectionIndex < this.sections.length - 1) ||
+            (direction < 0 && this.currentSectionIndex > 0)) {
             this.currentSectionIndex += direction;
             this.moveToSection(this.currentSectionIndex);
         }
@@ -152,20 +157,30 @@ class SectionScroller {
         });
     }
 
-    getCurrentSectionIndex() {
-        return this.currentSectionIndex;
+    checkViewport() {
+        if (window.innerWidth <= 768) {
+            this.currentPhoneStyles = this.mobilePhoneStyles;
+        } else {
+            this.currentPhoneStyles = this.phoneStyles;
+        }
     }
 
-    getCurrentSectionElement() {
-        return this.sections[this.currentSectionIndex];
+    applyStyles() {
+        this.sections.forEach((section, index) => {
+            this.updateVisuals(index);
+        });
     }
 
-    calculateWidthHeight() {
-        return window.innerHeight * (this.phone.offsetWidth / this.phone.offsetHeight);
+    destroy() {
+        window.removeEventListener('wheel', this.handleScroll);
+        window.removeEventListener('touchstart', this.handleTouchStart);
+        window.removeEventListener('touchmove', this.handleTouchMove);
+        window.removeEventListener('touchend', this.handleTouchEnd);
+        window.removeEventListener('resize', this.resizeSections);
+        window.removeEventListener('resize', this.checkViewport);
     }
 }
 
-// Usage
 window.addEventListener('load', () => {
     initializeScroller();
 });
@@ -222,6 +237,6 @@ function initializeScroller() {
         secondaryPhoneSection: 3
     });
 
-    console.log('Current section index:', scroller.getCurrentSectionIndex());
-    console.log('Current section element:', scroller.getCurrentSectionElement());
+    window.addEventListener('unload', () => scroller.destroy());
+
 }
