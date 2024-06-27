@@ -448,12 +448,12 @@ body {
         left: 0;
         width: 100%;
         height: 100%;
-        opacity: 0;
+        //opacity: 0;
         transform: translateY(100%);
         transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 
         &.active {
-          opacity: 1;
+          //opacity: 1;
           transform: translateY(0);
         }
       }

@@ -221,30 +221,30 @@ function initializeScroller() {
             { x: 300, y: -2.5, width: 90, od: "dvw" },
             { x: 300, y: -2.5, width: 90, od: "dvw" },
         ],
-        // imageMappings: [
-        //     0, // main
-        //     1, // Show photo2 in section 1
-        //     1, // Show photo3 in section 2
-        //     1, // Show photo3 in section 2
-        //     2, // find what
-        //     3, // find ideal
-        //     4, // explore
-        //     5, // chose
-        //     5, // Show photo3 in section 2
-        //     6, // Show photo3 in section 2
-        // ],
         imageMappings: [
             0, // main
-            0, // Show photo2 in section 1
-            0, // Show photo3 in section 2
-            0, // Show photo3 in section 2
-            0, // find what
-            0, // find ideal
-            0, // explore
-            0, // chose
-            0, // Show photo3 in section 2
-            0, // Show photo3 in section 2
+            1, // Show photo2 in section 1
+            1, // Show photo3 in section 2
+            1, // Show photo3 in section 2
+            2, // find what
+            3, // find ideal
+            4, // explore
+            5, // chose
+            5, // Show photo3 in section 2
+            6, // Show photo3 in section 2
         ],
+        // imageMappings: [
+        //     0, // main
+        //     0, // Show photo2 in section 1
+        //     0, // Show photo3 in section 2
+        //     0, // Show photo3 in section 2
+        //     0, // find what
+        //     0, // find ideal
+        //     0, // explore
+        //     0, // chose
+        //     0, // Show photo3 in section 2
+        //     0, // Show photo3 in section 2
+        // ],
         animatTextSection: 2,
         secondaryPhoneSection: 3
     });
