@@ -92,7 +92,7 @@ class SectionScroller {
     }
 
     updatePhoneImage(index) {
-        const images = document.querySelectorAll('.phone .photo');
+        const images = document.querySelectorAll('.phone .photo-screen');
         images.forEach((img, i) => {
             if (this.imageMappings[index] === i) {
                 img.classList.add('active');
