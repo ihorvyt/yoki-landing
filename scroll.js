@@ -23,9 +23,9 @@ class SectionScroller {
     init() {
         this.checkViewport();
         this.addEventListeners();
-        this.resizeSections();
         this.applyStyles();
         this.moveToSection(this.currentSectionIndex);
+        // this.resizeSections();
     }
 
     addEventListeners() {
@@ -34,7 +34,7 @@ class SectionScroller {
         window.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
         window.addEventListener('touchmove', this.debounce(this.handleTouchMove.bind(this), 100), { passive: false });
         window.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
-        window.addEventListener('resize', this.debounce(this.resizeSections.bind(this), 100));
+        // window.addEventListener('resize', this.debounce(this.resizeSections.bind(this), 100));
     }
 
     debounce(func, delay) {
@@ -150,16 +150,15 @@ class SectionScroller {
         }
     }
 
-    resizeSections() {
-        const viewportHeight = window.innerHeight;
-        this.sections.forEach(section => {
-            section.style.height = `${viewportHeight}px`;
-        });
-    }
+    // resizeSections() {
+    //     const viewportHeight = window.innerHeight;
+    //     this.sections.forEach(section => {
+    //         section.style.height = `${viewportHeight}px`;
+    //     });
+    // }
 
     checkViewport() {
         if (window.innerWidth <= 768) {
-            console.log(123)
             this.currentPhoneStyles = this.mobilePhoneStyles;
         } else {
             this.currentPhoneStyles = this.phoneStyles;
@@ -178,7 +177,7 @@ class SectionScroller {
         window.removeEventListener('touchstart', this.handleTouchStart);
         window.removeEventListener('touchmove', this.handleTouchMove);
         window.removeEventListener('touchend', this.handleTouchEnd);
-        window.removeEventListener('resize', this.resizeSections);
+        // window.removeEventListener('resize', this.resizeSections);
     }
 }
 
@@ -187,8 +186,7 @@ window.addEventListener('load', () => {
 });
 
 const phoneContainer = document.querySelector('.phone-container');
-const widthHeight = window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight);
-let normanlWidthHeight = widthHeight - widthHeight * 0.05;
+const normanlWidthHeight = (window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight)) * 0.95;
 
 function initializeScroller() {
 
@@ -240,5 +238,4 @@ function initializeScroller() {
     });
 
     window.addEventListener('unload', () => scroller.destroy());
-
 }

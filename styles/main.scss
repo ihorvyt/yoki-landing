@@ -12,10 +12,11 @@
   flex-direction: column;
   overflow-y: scroll;
 }
-//
-//section {
-//  border: 1px solid black;
-//}
+
+section {
+  border: 1px solid black;
+  height: 100vh !important;
+}
 
 
 body {
