@@ -21,20 +21,20 @@ class SectionScroller {
     }
 
     init() {
+        this.checkViewport();
         this.addEventListeners();
         this.resizeSections();
-        this.checkViewport();
         this.applyStyles();
         this.moveToSection(this.currentSectionIndex);
     }
 
     addEventListeners() {
+        window.addEventListener('resize', this.debounce(this.checkViewport.bind(this), 100));
         window.addEventListener('wheel', this.debounce(this.handleScroll.bind(this), 100), { passive: false });
         window.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
         window.addEventListener('touchmove', this.debounce(this.handleTouchMove.bind(this), 100), { passive: false });
         window.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
         window.addEventListener('resize', this.debounce(this.resizeSections.bind(this), 100));
-        window.addEventListener('resize', this.debounce(this.checkViewport.bind(this), 100));
     }
 
     debounce(func, delay) {
@@ -85,7 +85,7 @@ class SectionScroller {
     }
 
     animatePhone(index) {
-        const style = this.phoneStyles[index] || { x: 0, y: 0, width: 100, od: 'dvw', br: 0 };
+        const style = this.currentPhoneStyles[index] || { x: 0, y: 0, width: 100, od: 'dvw', br: 0 };
         this.phone.style.transform = `translate(${style.x}%, ${style.y}%)`;
         this.phone.style.width = `${style.width}${style.od}`;
         this.phoneOverflow.style.borderRadius = `${style.br}%`;
@@ -159,6 +159,7 @@ class SectionScroller {
 
     checkViewport() {
         if (window.innerWidth <= 768) {
+            console.log(123)
             this.currentPhoneStyles = this.mobilePhoneStyles;
         } else {
             this.currentPhoneStyles = this.phoneStyles;
@@ -172,12 +173,12 @@ class SectionScroller {
     }
 
     destroy() {
+        window.removeEventListener('resize', this.checkViewport);
         window.removeEventListener('wheel', this.handleScroll);
         window.removeEventListener('touchstart', this.handleTouchStart);
         window.removeEventListener('touchmove', this.handleTouchMove);
         window.removeEventListener('touchend', this.handleTouchEnd);
         window.removeEventListener('resize', this.resizeSections);
-        window.removeEventListener('resize', this.checkViewport);
     }
 }
 
@@ -187,7 +188,7 @@ window.addEventListener('load', () => {
 
 const phoneContainer = document.querySelector('.phone-container');
 const widthHeight = window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight);
-const normanlWidthHeight = widthHeight - widthHeight * 0.05;
+let normanlWidthHeight = widthHeight - widthHeight * 0.05;
 
 function initializeScroller() {
 
