@@ -185,10 +185,11 @@ window.addEventListener('load', () => {
     initializeScroller();
 });
 
+const phoneContainer = document.querySelector('.phone-container');
+const widthHeight = window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight);
+const normanlWidthHeight = widthHeight - widthHeight * 0.05;
+
 function initializeScroller() {
-    const phoneContainer = document.querySelector('.phone-container');
-    const widthHeight = window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight);
-    const normanlWidthHeight = widthHeight - widthHeight * 0.05;
 
     const scroller = new SectionScroller({
         scrollSensitivity: 1.5,

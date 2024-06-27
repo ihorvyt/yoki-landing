@@ -436,8 +436,8 @@ body {
       height: 100%;
       width: 98%;
       left: 0px;
-      //border: 2px solid black;
-      border-radius: 5%;
+      border: 2px solid pink;
+      border-radius: 12% !important;
       overflow: hidden;
       background: #fff;
 
@@ -459,6 +459,7 @@ body {
 
       .photo2 {
         scale: 0.96;
+        top: -0.5%;
         left: 3px;
       }
 
