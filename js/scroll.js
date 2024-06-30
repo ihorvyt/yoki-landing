@@ -25,7 +25,6 @@ class SectionScroller {
         this.addEventListeners();
         this.applyStyles();
         this.moveToSection(this.currentSectionIndex);
-        // this.resizeSections();
     }
 
     addEventListeners() {
@@ -34,7 +33,7 @@ class SectionScroller {
         window.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
         window.addEventListener('touchmove', this.debounce(this.handleTouchMove.bind(this), 100), { passive: false });
         window.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
-        // window.addEventListener('resize', this.debounce(this.resizeSections.bind(this), 100));
+        window.addEventListener('hashchange', this.handleHashChange.bind(this), { passive: true });
     }
 
     debounce(func, delay) {
@@ -150,12 +149,17 @@ class SectionScroller {
         }
     }
 
-    // resizeSections() {
-    //     const viewportHeight = window.innerHeight;
-    //     this.sections.forEach(section => {
-    //         section.style.height = `${viewportHeight}px`;
-    //     });
-    // }
+    handleHashChange() {
+        const id = window.location.hash.substring(1);
+        const target = document.getElementById(id);
+        if (target) {
+            const index = Array.prototype.indexOf.call(this.sections, target);
+            if (index !== -1) {
+                this.currentSectionIndex = index;
+                this.moveToSection(index);
+            }
+        }
+    }
 
     checkViewport() {
         if (window.innerWidth <= 768) {
@@ -177,7 +181,7 @@ class SectionScroller {
         window.removeEventListener('touchstart', this.handleTouchStart);
         window.removeEventListener('touchmove', this.handleTouchMove);
         window.removeEventListener('touchend', this.handleTouchEnd);
-        // window.removeEventListener('resize', this.resizeSections);
+        window.removeEventListener('hashchange', this.handleHashChange);
     }
 }
 
@@ -189,7 +193,6 @@ const phoneContainer = document.querySelector('.phone-container');
 const normanlWidthHeight = (window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight)) * 0.95;
 
 function initializeScroller() {
-
     const scroller = new SectionScroller({
         scrollSensitivity: 1.5,
         scrollDuration: 700,
@@ -233,21 +236,41 @@ function initializeScroller() {
             5, // Show photo3 in section 2
             6, // Show photo3 in section 2
         ],
-        // imageMappings: [
-        //     0, // main
-        //     0, // Show photo2 in section 1
-        //     0, // Show photo3 in section 2
-        //     0, // Show photo3 in section 2
-        //     0, // find what
-        //     0, // find ideal
-        //     0, // explore
-        //     0, // chose
-        //     0, // Show photo3 in section 2
-        //     0, // Show photo3 in section 2
-        // ],
         animatTextSection: 2,
         secondaryPhoneSection: 3
     });
 
+    window.scrollerInstance = scroller; // Save instance for later reference
     window.addEventListener('unload', () => scroller.destroy());
+}
+
+// Smooth scrolling for anchor links
+const links = document.querySelectorAll('a[href^="#"]');
+
+if (links.length > 0) {
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const href = this.getAttribute('href').substring(1);
+
+            const target = document.getElementById(href);
+
+            if (target) {
+                const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
+
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+
+                // Update current section index for SectionScroller
+                const scroller = window.scrollerInstance;
+                if (scroller) {
+                    scroller.currentSectionIndex = 11; // Set the index to 11
+                    scroller.updateVisuals(11);
+                }
+            }
+        });
+    });
 }
