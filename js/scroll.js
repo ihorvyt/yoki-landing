@@ -189,10 +189,10 @@ window.addEventListener('load', () => {
     initializeScroller();
 });
 
-const phoneContainer = document.querySelector('.phone-container');
-const normanlWidthHeight = (window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight)) * 0.95;
-
 function initializeScroller() {
+    const phoneContainer = document.querySelector('.phone-container');
+    const normanlWidthHeight = (window.innerHeight * (phoneContainer.offsetWidth / phoneContainer.offsetHeight)) * 0.95;
+
     const scroller = new SectionScroller({
         scrollSensitivity: 1.5,
         scrollDuration: 700,
@@ -274,3 +274,4 @@ if (links.length > 0) {
         });
     });
 }
+
