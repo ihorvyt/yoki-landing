@@ -10,6 +10,9 @@ section {
   height: 100vh !important;
 }
 
+html {
+  overflow-y: hidden;
+}
 body {
   position: relative;
   overflow: hidden;
@@ -22,46 +25,61 @@ body {
   height: 100vh;
   width: 100vw;
 
+  pointer-events: none;
   z-index: 999999;
 
   &__logo {
     position: relative;
     height: 100%;
+    animation: splashScreen 0.5s ease-in forwards;
+    animation-delay: 1.5s;
 
     &:before {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      width: 200vw;
+      height: 200vw;
       background: white;
       content: "";
       z-index: 2;
+
+      border-radius: 100%;
+
+
+      transform-origin: top left;
+      animation: screenSizeChange 1.2s ease-in forwards;
+      transform: translate(-50%, -50%);
+      animation-delay: 0.2s;
     }
 
     img {
       position: absolute;
       top: 50%;
       left: 50%;
+      width: 20vw;
       transform: translate(-50%, -50%);
       z-index: 2;
     }
   }
-
-
-  animation: splashScreen 1s ease-in forwards;
-  animation-delay: 1s;
 }
 
 
 @keyframes splashScreen {
   0% {
-    opacity: 1;
-    transform: translateY(0%);
+    transform: translate(0, 0%);
   }
 100% {
-    transform: translateY(-100%);
-    //opacity: 0;
+  transform: translate(0, -100%);
+  }
+}
+
+@keyframes screenSizeChange {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0.0;
   }
 }
 
@@ -69,7 +87,6 @@ body {
 .main-section {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 
   .head-screen {
     display: flex;
@@ -79,7 +96,7 @@ body {
 
     .text-content {
       &:first-child {
-        width: 28%;
+        width: 27.8%;
         margin-top: 3%;
         position: relative;
 
@@ -90,15 +107,15 @@ body {
         &:before {
           position: absolute;
           content: "";
-          width: 26vw;
-          height: 26vw;
+          width: 32vw;
+          height: 32vw;
           border-radius: 1046px;
           background: #FFF3E5;
           filter: blur(118.5px);
           z-index: -1;
 
-          top: 70%;
-          left: -90%;
+          top: 50%;
+          left: -50%;
         }
 
       }
@@ -114,8 +131,8 @@ body {
         &:before {
           position: absolute;
           content: "";
-          width: 30vw;
-          height: 30vw;
+          width: 46vw;
+          height: 46vw;
           flex-shrink: 0;
           border-radius: 1046px;
           background: #FFF3E5;
@@ -246,8 +263,8 @@ body {
     top: 20%;
     right: 0;
     content: "";
-    width: 45vw;
-    height: 45vw;
+    width: 55vw;
+    height: 55vw;
 
     border-radius: 1046px;
     background: #FFF3E5;
@@ -258,8 +275,8 @@ body {
   &:before {
     position: absolute;
     content: "";
-    width: 45vw;
-    height: 45vw;
+    width: 55vw;
+    height: 55vw;
     flex-shrink: 0;
     border-radius: 1046px;
     background: #FFF3E5;
@@ -293,8 +310,8 @@ body {
     top: 65%;
     right: 28%;
     content: "";
-    width: 29vw;
-    height: 29vw;
+    width: 32vw;
+    height: 32vw;
 
     border-radius: 530px;
     background: #FFF3E5;
@@ -327,10 +344,24 @@ body {
   &:before {
     position: absolute;
     top: 65%;
-    right: 0%;
+    right: -20%;
     content: "";
-    width: 35vw;
-    height: 35vw;
+    width: 42vw;
+    height: 42vw;
+
+    border-radius: 530px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+  }
+
+  &:after {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    content: "";
+    width: 42vw;
+    height: 42vw;
 
     border-radius: 530px;
     background: #FFF3E5;
@@ -355,6 +386,8 @@ body {
   align-items: center;
   padding: 0px 50px 0px 50px;
 
+
+
   .fp-tableCell {
     display: flex;
     align-items: center;
@@ -371,6 +404,22 @@ body {
   display: flex;
   align-items: center;
   padding: 0px 50px 0px 50px;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 0%;
+    right: -30%;
+    content: "";
+    width: 55vw;
+    height: 55vw;
+
+    border-radius: 530px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+  }
+
 
   .fp-tableCell {
     display: flex;
@@ -389,6 +438,22 @@ body {
   display: flex;
   align-items: center;
   padding: 0px 50px 0px 50px;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 0%;
+    left: -18%;
+    content: "";
+    width: 55vw;
+    height: 55vw;
+
+    border-radius: 530px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+  }
+
 
   .fp-tableCell {
     display: flex;
@@ -408,6 +473,22 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 10vh;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 55vw;
+    height: 55vw;
+    transform: translate(-50%, -50%);
+
+    border-radius: 1046px;
+    background: #FFF3E5;
+    filter: blur(118.5px);
+    z-index: -1;
+  }
 
   padding: 0px 50px 0px 50px;
 
