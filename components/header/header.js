@@ -20,6 +20,7 @@ document.addEventListener('scroll', function() {
         header.classList.remove('hidden');
     }
 });
+
 let starAnimationInterval;
 let animationStarted = false;
 
