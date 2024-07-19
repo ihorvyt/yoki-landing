@@ -13,7 +13,7 @@ class SectionScroller {
         this.scrollDuration = options.scrollDuration || 700;
         this.phoneStyles = options.phoneStyles || [];
         this.mobilePhoneStyles = options.mobilePhoneStyles || [];
-        this.imageMappings = options.imageMappings || [];
+        this.imageMappings = options.imageMappings || []
         this.secondaryPhoneSection = options.secondaryPhoneSection || null;
         this.animatTextSection = options.animatTextSection || null;
 
@@ -197,7 +197,7 @@ function initializeScroller() {
         scrollSensitivity: 1.5,
         scrollDuration: 700,
         phoneStyles: [
-            { x: -42, y: 4, width: 41, od: "dvw" }, // main
+            { x: -42, y: 8, width: 41, od: "dvw" }, // main
             { x: -30, y: 2.5, width: normanlWidthHeight, od: "px", br: 5 }, // tell
             { x: -16, y: -12, width: 55, od: "dvw" }, // tell 2
             { x: -30, y: 2.5, width: normanlWidthHeight, od: "px", br: 5 }, // badge

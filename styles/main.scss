@@ -83,7 +83,6 @@ body {
   }
 }
 
-
 .main-section {
   display: flex;
   flex-direction: column;
@@ -97,7 +96,7 @@ body {
     .text-content {
       &:first-child {
         width: 27.8%;
-        margin-top: 3%;
+        margin-top: 10%;
         position: relative;
 
         h2 {
@@ -126,7 +125,7 @@ body {
         flex-direction: column;
         gap: 10px;
         height: fit-content;
-        margin: calc((100vh - 131px) / 2 - 262px) 0 auto 0;
+        padding-top: 20%;
 
         &:before {
           position: absolute;
@@ -447,7 +446,6 @@ body {
     content: "";
     width: 55vw;
     height: 55vw;
-
     border-radius: 530px;
     background: #FFF3E5;
     filter: blur(118.5px);
@@ -547,9 +545,8 @@ body {
   height: auto;
   top: 0;
   left: 50%;
-  transform: translate(-42%, 4%);
   transition: transform 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out;
-
+  transform: translate(-42%, 4%);
   .phone {
     transition: transform 1s ease-in-out;
 
@@ -601,8 +598,9 @@ body {
       }
 
       .photo3 {
-        scale: 0.959;
-        left: 3px;
+        scale: 0.94;
+        left: 2px;
+        top: 2px;
       }
 
       .photo4 {
