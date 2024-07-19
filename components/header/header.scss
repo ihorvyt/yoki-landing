@@ -3,14 +3,15 @@
 header {
   display: flex;
   padding: 34px 50px;
-    position: fixed;
-    height: 15vh;
-    width: 100%;
-    z-index: 99;
-    transition: transform 0.3s ease-in-out;
+  position: fixed;
+  height: 15vh;
+  width: 100%;
+  z-index: 99;
+  gap: 24px;
+  transition: transform 0.3s ease-in-out;
 
-    header.hidden {
-      transform: translateY(-100%);
+  header.hidden {
+    transform: translateY(-100%);
   }
 
   .language-change {
@@ -30,15 +31,16 @@ header {
 
   .button-container {
     position: relative;
+
     display: flex;
-    justify-content: center;
+    align-items: center;
   }
   
   .stay-tuned {
     background-color: $primaryYellow;
     color: $primaryWhite;
     border: none;
-    padding: 0.926vh 	2.778vh; 
+    padding: 1.4vh 2.778vh;
     font-size: 1.363vw;
     border-radius: 30px;
     cursor: pointer;

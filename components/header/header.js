@@ -1,27 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('scroll', function() {
     const header = document.getElementById('header');
-    const targetSection = document.getElementById('section12');
+    const section11 = document.getElementById('section11');
+    const section12 = document.getElementById('section12');
 
-    const observerOptions = {
-        root: null, // Use the viewport as the root
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when at least 10% of the target is visible
-    };
+    // Отримати позицію елементів відносно верху сторінки
+    const section11Top = section11.getBoundingClientRect().top + window.scrollY;
+    const section12Top = section12.getBoundingClientRect().top + window.scrollY;
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                header.classList.add('hidden');
-            } else {
-                header.classList.remove('hidden');
-            }
-        });
-    };
+    // Отримати поточну позицію скролу
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    observer.observe(targetSection);
+    // Перевірити, чи користувач знаходиться на потрібній секції
+    if (scrollPosition >= section11Top - 200 && scrollPosition < section12Top + section12.offsetHeight - 200) {
+        // Приховати header, якщо користувач на section11 або section12
+        header.classList.add('hidden');
+    } else {
+        // Показати header, якщо користувач не на цих секціях
+        header.classList.remove('hidden');
+    }
 });
-
 let starAnimationInterval;
 let animationStarted = false;
 

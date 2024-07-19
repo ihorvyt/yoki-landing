@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/yoky.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yoky</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/style.scss">
+    <link rel="stylesheet" href="../styles/default.scss">
+    <link rel="stylesheet" href="../styles/main.scss">
+    <link rel="stylesheet" href="../styles/responive/main-responisve.scss">
+    <link rel="stylesheet" href="../components/header/header.scss">
+    <link rel="stylesheet" href="../components/footer/footer.scss">
+</head>
+<body>
+<!-- <div class="splash-screen">
+  <div class="splash-screen__logo">
+    <img src="/components/footer/yoki-logo-svg.svg" alt="">
+  </div>
+</div> -->
+<header id="header">
+    <a href="/index.html" class="language-change">
+        <img src="/components/header/world-svg.svg" alt="">
+        UA
+    </a>
+
+    <div class="button-container">
+        <a href="#footer" class="stay-tuned" id="animatedButton">
+            Stay Informed
+        </a>
+        <div class="star star1 glow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                <path d="M3.94271 1.75494C4.12349 0.844403 5.33946 0.650149 5.79493 1.45904L6.91637 3.45069C7.05956 3.705 7.30672 3.88407 7.59299 3.9409L9.8349 4.38602C10.7454 4.5668 10.9397 5.78277 10.1308 6.23824L8.13915 7.35968C7.88483 7.50287 7.70577 7.75003 7.64893 8.0363L7.20382 10.2782C7.02304 11.1887 5.80707 11.383 5.3516 10.5741L4.23016 8.58246C4.08696 8.32814 3.83981 8.14908 3.55354 8.09224L1.31163 7.64713C0.401092 7.46635 0.206839 6.25038 1.01573 5.79491L3.00738 4.67347C3.26169 4.53027 3.44076 4.28312 3.49759 3.99685L3.94271 1.75494Z" fill="#FF9F38"/>
+            </svg>
+        </div>
+        <div class="star star2 glow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                <path d="M3.94271 1.75494C4.12349 0.844403 5.33946 0.650149 5.79493 1.45904L6.91637 3.45069C7.05956 3.705 7.30672 3.88407 7.59299 3.9409L9.8349 4.38602C10.7454 4.5668 10.9397 5.78277 10.1308 6.23824L8.13915 7.35968C7.88483 7.50287 7.70577 7.75003 7.64893 8.0363L7.20382 10.2782C7.02304 11.1887 5.80707 11.383 5.3516 10.5741L4.23016 8.58246C4.08696 8.32814 3.83981 8.14908 3.55354 8.09224L1.31163 7.64713C0.401092 7.46635 0.206839 6.25038 1.01573 5.79491L3.00738 4.67347C3.26169 4.53027 3.44076 4.28312 3.49759 3.99685L3.94271 1.75494Z" fill="#FF9F38"/>
+            </svg>
+        </div>
+        <div class="star star3 glow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                <path d="M3.94271 1.75494C4.12349 0.844403 5.33946 0.650149 5.79493 1.45904L6.91637 3.45069C7.05956 3.705 7.30672 3.88407 7.59299 3.9409L9.8349 4.38602C10.7454 4.5668 10.9397 5.78277 10.1308 6.23824L8.13915 7.35968C7.88483 7.50287 7.70577 7.75003 7.64893 8.0363L7.20382 10.2782C7.02304 11.1887 5.80707 11.383 5.3516 10.5741L4.23016 8.58246C4.08696 8.32814 3.83981 8.14908 3.55354 8.09224L1.31163 7.64713C0.401092 7.46635 0.206839 6.25038 1.01573 5.79491L3.00738 4.67347C3.26169 4.53027 3.44076 4.28312 3.49759 3.99685L3.94271 1.75494Z" fill="#FF9F38"/>
+            </svg>
+        </div>
+        <div class="star star4 glow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                <path d="M3.94271 1.75494C4.12349 0.844403 5.33946 0.650149 5.79493 1.45904L6.91637 3.45069C7.05956 3.705 7.30672 3.88407 7.59299 3.9409L9.8349 4.38602C10.7454 4.5668 10.9397 5.78277 10.1308 6.23824L8.13915 7.35968C7.88483 7.50287 7.70577 7.75003 7.64893 8.0363L7.20382 10.2782C7.02304 11.1887 5.80707 11.383 5.3516 10.5741L4.23016 8.58246C4.08696 8.32814 3.83981 8.14908 3.55354 8.09224L1.31163 7.64713C0.401092 7.46635 0.206839 6.25038 1.01573 5.79491L3.00738 4.67347C3.26169 4.53027 3.44076 4.28312 3.49759 3.99685L3.94271 1.75494Z" fill="#FF9F38"/>
+            </svg>
+        </div>
+        <div class="star star5 glow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                <path d="M3.94271 1.75494C4.12349 0.844403 5.33946 0.650149 5.79493 1.45904L6.91637 3.45069C7.05956 3.705 7.30672 3.88407 7.59299 3.9409L9.8349 4.38602C10.7454 4.5668 10.9397 5.78277 10.1308 6.23824L8.13915 7.35968C7.88483 7.50287 7.70577 7.75003 7.64893 8.0363L7.20382 10.2782C7.02304 11.1887 5.80707 11.383 5.3516 10.5741L4.23016 8.58246C4.08696 8.32814 3.83981 8.14908 3.55354 8.09224L1.31163 7.64713C0.401092 7.46635 0.206839 6.25038 1.01573 5.79491L3.00738 4.67347C3.26169 4.53027 3.44076 4.28312 3.49759 3.99685L3.94271 1.75494Z" fill="#FF9F38"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- <a href="#footer" class="stay-tuned">
+      Бути в курсі
+    </a> -->
+</header>
+
+<div class="phone-container">
+    <div class="phone">
+        <div id="phoneOverflow" class="content">
+            <img src="/phone_screens/photo_scenes/webp_format/zero.webp" class="photo-screen photo1" loading="lazy" alt="">
+            <img src="/phone_screens/photo_scenes/webp_format/Group3.webp" class="photo-screen photo2" loading="lazy" alt="">
+            <img src="/phone_screens/photo_scenes/webp_format/second_screen.webp" class="photo-screen photo3" loading="lazy" alt="">
+            <img src="/phone_screens/photo_scenes/webp_format/search_screen.webp" class="photo-screen photo4" loading="lazy" alt="">
+            <img src="/phone_screens/photo_scenes/webp_format/project-profile.webp" class="photo-screen photo5" loading="lazy" alt="">
+            <img src="/phone_screens/photo_scenes/webp_format/mine_screen.webp" class="photo-screen photo6" loading="lazy" alt="">
+            <img src="/phone_screens/photo_scenes/webp_format/profile_screen.webp" class="photo-screen photo7" loading="lazy" alt="">
+        </div>
+        <img id="phone_container" src="/phone_screens/photo_scenes/pixel8.png" alt="">
+    </div>
+    <div class="secondary-phone">
+        <div class="content">
+            <img src="/phone_screens/photo_scenes/webp_format/qr_code.webp" class="photo2" loading="lazy" alt="">
+        </div>
+        <img id="obgortka" src="/phone_screens/photo_scenes/pixel8.png" alt="">
+    </div>
+</div>
+
+<section id="section1" class="main-section section">
+    <div class="head-screen">
+        <div class="text-content">
+            <h2>Welcome to the app for finding and collaborating with like-minded people</h2>
+        </div>
+
+        <div class="text-content">
+            <h1  class="yellow-text">Yoky!</h1>
+            <div>
+                <p class="yellow-text">Find your like-minded <br> people and</p>
+                <p>Realize <br>ideas together.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section2" class="about-section section">
+    <div class="text-content tell_text">
+        <h2><span class="yellow-text">Tell us about yourself</span> in the profile, let others understand who you are and what you want</h2>
+        <div class="paragraphs-content">
+            <p>In the profile, you can write about what you love to do, your hobbies, interests, favorite movies, music genres, and much more</p>
+        </div>
+    </div>
+</section>
+<section id="section3" class="section">
+
+</section>
+<section id="section4" class="search-more-section section">
+    <div class="text-content">
+        <h2>And here's <span class="yellow-span-text">your badge</span>, now we can get down to business</h2>
+    </div>
+</section>
+<section id="section5" class="text-section section">
+    <div class="text-content">
+        <h2>Now <span class="yellow-span-text">let's</span> find something to do!</h2>
+    </div>
+</section>
+<section id="section6" class="find-section section">
+    <div class="text-content">
+        <h2>Find the perfect activity!</h2>
+    </div>
+    <div class="text-content">
+        <p>Use the search to find interesting projects and events.</p>
+        <br>
+        <p>Choose from a variety of projects that suit you — from creative collaborations to sports initiatives.</p>
+    </div>
+</section>
+<section id="section7" class="explore-section section">
+    <div class="text-content">
+        <h2><span class="yellow-span-text">Explore</span> passions and interests</h2>
+    </div>
+</section>
+<section id="section8" class="join-section section">
+    <div class="text-content">
+        <h2> Chose an interesting project to you? <span class="yellow-span-text"> Great!</span></h2>
+
+        <p>Join the community of like-minded people and bring your ideas to life together with others.</p>
+    </div>
+</section>
+<section id="section9" class="sent-badge-section section">
+<div class="text-content">
+    <h2>Now send your<span class="yellow-span-text"> badge!</span></h2>
+</div>
+</section>
+<section id="section10" class="show-yourself-section section">
+    <div class="text-content">
+        <h2>Express Yourself! <br><span class="yellow-span-text"> Boldly!</span></h2>
+    </div>
+    <div class="text-content">
+        <p>Share your story, your dreams, and your talents!</p>
+        <br>
+        <p>Your unique experience and skills could be the key to great opportunities.</p>
+    </div>
+</section>
+<section id="section11" class="its-time-section section">
+    <img src="/components/main/gallery.png" alt="">
+    <div class="text-content">
+        <h2>Unfold Your <br>Potentials —<span class="yellow-span-text">Time to Act!</span></h2>
+    </div>
+</section>
+<section id="section12" class="section">
+    <footer id="footer">
+        <div class="links">
+            <a target="_blank" href="https://t.me/yokyapp" class="soc-media">
+                <img src="/components/footer/telegram-icon-svg.svg" alt="">
+
+                join our <br> Telegram
+            </a>
+            <a target="_blank" href="https://linktr.ee/yokyapp" class="footer-logo">
+                <img src="/components/footer/yoki-logo-svg.svg" alt="">
+
+                Click on Yoky to support our project.
+            </a>
+            <a target="_blank" href="https://www.tiktok.com/@yokyapp" class="soc-media">
+                <img src="/components/footer/tiktok-icon-svg.svg" alt="">
+                join our <br> Tik-Tok
+            </a>
+        </div>
+        <div class="big-name-logo-privacy">
+            <div class="name">
+                <!--            <img src="/components/footer/yoky-name.svg" alt="">-->
+            </div>
+            <div class="privacy">
+                <p>Copyright 2024 Yoky. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</section>
+
+
+<script type="module" src="../components/header/header.js"></script>
+<script type="module" src="../components/footer/footer.js"></script>
+<script type="module" src="../js/scroll.js"></script>
+<script type="module" src="../js/language.js"></script>
+<script type="module" src="../js/anim.js"></script>
+</body>
+</html>
