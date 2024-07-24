@@ -21,13 +21,18 @@
       </div>
     </div> -->
     <header id="header">
-      <a href="enindex.html" class="language-change">
-        <img src="/components/header/world-svg.svg" alt="">
-        EN
-      </a>
+      <div class="dropdown language-change">
+        <button class="dropbtn">
+          <img src="/components/header/world-svg.svg" alt="">
+          ENG</button>
+        <div class="dropdown-content ">
+            <a href="#" id="ua">UA</a>
+            <a href="#" id="eng">ENG</a>
+        </div>
+    </div>
 
       <div class="button-container">
-        <a href="#footer" class="stay-tuned" id="animatedButton">
+        <a href="#footer" class="stay-tuned" id="animatedButton" data-translate="stayTuned">
           Бути в курсі
         </a>
         <div class="star star1 glow">
@@ -57,9 +62,6 @@
         </div>
       </div>
 
-      <!-- <a href="#footer" class="stay-tuned">
-        Бути в курсі
-      </a> -->
     </header>
 
     <div class="phone-container">
@@ -86,37 +88,41 @@
     <section id="section1" class="main-section section">
       <div class="head-screen">
         <div class="text-content">
-          <h2>Вітаємо у застосунку для пошуку і співпраці з однодумцями</h2>
+          <h2 data-translate="welcomeMessage">Вітаємо у застосунку для пошуку і співпраці з однодумцями</h2>
         </div>
-
         <div class="text-content">
-          <h1  class="yellow-text">Yoky!</h1>
+          <h1 class="yellow-text">Yoky!</h1>
           <div>
-            <p class="yellow-text">Знайдіть своїх <br> однодумців та</p>
-            <p>Реалізуйте  <br>ідеї разом.</p>
+            <p class="yellow-text" data-translate="find_mates">Знайдіть своїх <br> однодумців та</p>
+            <p data-translate="implement_ideas">Реалізуйте <br>ідеї разом.</p>
           </div>
         </div>
       </div>
     </section>
     <section id="section2" class="about-section section">
-      <div class="text-content tell_text">
-        <h2><span class="yellow-text">Розкажіть про себе</span> у анкеті, дайте іншим зрозуміти хто ви і чого хочете</h2>
+      <div class="text-content tell_text" data-translate="introduce_yourself">
+        <h2>
+          <span class="yellow-text">Розкажіть про себе</span> у анкеті, дайте іншим зрозуміти хто ви і чого хочете
+        </h2>
         <div class="paragraphs-content">
-          <p>У анкеті ви можете написати чим любите займатися, ваші захоплення, улюблені фільми, жанри музики і ще багато іншого.</p>
+          <p>У анкеті ви можете написати чим любите займатися, ваші захоплення,
+             улюблені фільми, жанри музики і ще багато іншого.</p>
         </div>
       </div>
     </section>
-    <section id="section3" class=" section">
-
-    </section>
+    <section id="section3" class="section"></section>
     <section id="section4" class="search-more-section section">
       <div class="text-content">
-        <h2>А ось <span class="yellow-span-text">ваш бейдж</span>, тепер можемо приступити до справи</h2>
+        <h2>А ось 
+          <span class="yellow-span-text">ваш бейдж</span>, тепер можемо приступити до справи
+        </h2>
       </div>
     </section>
     <section id="section5" class="text-section section">
       <div class="text-content">
-        <h2>Тепер <span class="yellow-span-text">давайте</span> знайдемо чим зайнятись!</h2>
+        <h2>Тепер 
+          <span class="yellow-span-text">давайте</span> знайдемо чим зайнятись!
+        </h2>
       </div>
     </section>
     <section id="section6" class="find-section section">
@@ -131,24 +137,32 @@
     </section>
     <section id="section7" class="explore-section section">
       <div class="text-content">
-        <h2><span class="yellow-span-text">Досліджуйте</span> захоплення та інтереси</h2>
+        <h2>
+          <span class="yellow-span-text">Досліджуйте</span> захоплення та інтереси
+        </h2>
       </div>
     </section>
     <section id="section8" class="join-section section">
       <div class="text-content">
-        <h2> Вибрали цікавий вам проєкт? <span class="yellow-span-text"> Чудово!</span></h2>
-
+        <h2> Вибрали цікавий вам проєкт? 
+          <span class="yellow-span-text"> Чудово!</span>
+        </h2>
         <p>Приєднуйтесь до спільноти однодумців і втілюйте свої ідеї у життя разом з іншими.</p>
       </div>
     </section>
     <section id="section9" class="sent-badge-section section">
       <div class="text-content">
-        <h2>Тепер надішліть свій<span class="yellow-span-text"> бейдж!</span></h2>
+        <h2>Тепер надішліть свій
+          <span class="yellow-span-text"> бейдж!</span>
+        </h2>
       </div>
     </section>
     <section id="section10" class="show-yourself-section section">
       <div class="text-content">
-        <h2>Висловіть Себе! <br><span class="yellow-span-text"> Сміливо!</span></h2>
+        <h2>Висловіть Себе! 
+          <br>
+          <span class="yellow-span-text"> Сміливо!</span>
+        </h2>
       </div>
       <div class="text-content">
         <p>Діліться своєю історією, вашими мріями та талантами! </p>
@@ -167,12 +181,10 @@
         <div class="links">
           <a target="_blank" href="https://t.me/yokyapp" class="soc-media">
             <img src="/components/footer/telegram-icon-svg.svg" alt="">
-
             долучайся до нашого <br> Telegram
           </a>
           <a target="_blank" href="https://linktr.ee/yokyapp" class="footer-logo">
             <img src="/components/footer/yoki-logo-svg.svg" alt="">
-
             Натисніть на Yoky щоб підтримати наш проєкт.
           </a>
           <a target="_blank" href="https://www.tiktok.com/@yokyapp" class="soc-media">
@@ -182,7 +194,7 @@
         </div>
         <div class="big-name-logo-privacy">
           <div class="name">
-            <!--            <img src="/components/footer/yoky-name.svg" alt="">-->
+            <!-- <img src="/components/footer/yoky-name.svg" alt=""> -->
           </div>
           <div class="privacy">
             <p>Copyright 2024 Yoky. Всі права захищені.</p>
@@ -190,12 +202,15 @@
         </div>
       </footer>
     </section>
-
-
+    
     <script type="module" src="./components/header/header.js"></script>
     <script type="module" src="./components/footer/footer.js"></script>
     <script type="module" src="js/scroll.js"></script>
-    <script type="module" src="js/language.js"></script>
     <script type="module" src="js/anim.js"></script>
+    <!-- i18 libary -->
+    <script src="https://unpkg.com/i18next@21.6.0/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@6.1.2/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="./js/translation.js"></script>
+    
   </body>
 </html>

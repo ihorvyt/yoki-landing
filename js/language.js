@@ -1,1 +1,0 @@
-yoky.fun

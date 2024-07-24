@@ -21,6 +21,40 @@ document.addEventListener('scroll', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdown = document.querySelector('.dropdown');
+    const dropbtn = document.querySelector('.dropbtn');
+    const links = document.querySelectorAll('.dropdown-content a');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropbtn.textContent = this.textContent;
+            links.forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    //to handle the sliding effect on hover
+    dropdown.addEventListener('mouseenter', function () {
+        const dropdownContent = this.querySelector('.dropdown-content');
+        dropdownContent.style.display = 'block';
+        setTimeout(() => {
+            dropdownContent.style.maxHeight = '300px';
+            dropdownContent.style.opacity = '1';
+        }, 0); // Start transition immediately
+    });
+
+    dropdown.addEventListener('mouseleave', function () {
+        const dropdownContent = this.querySelector('.dropdown-content');
+        dropdownContent.style.maxHeight = '0';
+        dropdownContent.style.opacity = '0';
+        setTimeout(() => {
+            dropdownContent.style.display = 'none';
+        }, 500); // Match the duration of the transition
+    });
+});
+
 let starAnimationInterval;
 let animationStarted = false;
 
