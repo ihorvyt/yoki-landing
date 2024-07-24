@@ -9,6 +9,7 @@ header {
   z-index: 99;
   gap: 24px;
   transition: transform 0.3s ease-in-out;
+  align-items: center;
 
   header.hidden {
     transform: translateY(-100%);
@@ -33,49 +34,59 @@ header {
     display: inline-block;
   }
 
-.dropbtn {
-    color: black;
-    font-size: 16px;
-    border: none;
+  .dropbtn {
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100px;
+      height: 40px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 15px 15px 0px 0px;
+      background: none;
+      transition: background-color 0.2s ease-in-out;
+  }
+
+  .dropdown:hover .dropbtn {
+      background-color: orange;
+      color: white;
+
+    svg {
+      width: 2vw;
+      path {
+        fill: #FFFFFF;
+      }
+    }
+  }
+
+  .dropdown-content {
     width: 100px;
-    height: 40px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 15px 15px 0px 0px;
-    background: none;
-    transition: background-color 0.2s ease-in-out;
-}
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      animation: slideDown 1s ease-in-out forwards;
+  }
 
-.dropbtn:hover,
-.dropdown:hover .dropbtn {
-    background-color: orange;
-    color: white;
-}
+  .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    animation: slideDown 1s ease-in-out forwards;
-}
+    text-align: center;
+    font-size: 16px;
+  }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
+  .dropdown-content a:hover {
+      background-color: #f1f1f1;
+  }
 
 @keyframes slideDown {
     from {
@@ -101,7 +112,7 @@ header {
 
 .dropdown:hover .dropdown-content {
     display: block;
-    width: 100px;
+    min-width: 100px;
     background-color: orange;
     border-radius: 0px 0px 15px 15px;
     animation: slideDown 1s ease-in-out forwards;
