@@ -58,6 +58,18 @@ document.addEventListener('DOMContentLoaded', function () {
 let starAnimationInterval;
 let animationStarted = false;
 
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('animatedButton');
+
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        button.classList.add('active');
+        setTimeout(() => {
+            window.location.href = button.getAttribute('href');
+        }, 500); // Adjust the delay to match the transition duration
+    });
+});
+
 function startStarAnimation() {
     const stars = document.querySelectorAll('.star');
     stars.forEach(star => {
