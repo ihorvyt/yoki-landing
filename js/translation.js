@@ -57,35 +57,66 @@ const resources = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    i18next
-      .use(i18nextBrowserLanguageDetector)
-      .init({
-        debug: true,
-        fallbackLng: 'en',
-        resources: resources,
-        interpolation: {
-          escapeValue: false // allows HTML in translations
-        }
-      }, function(err, t) {
-        updateContent();
-      });
-
-    function updateContent() {
-      document.querySelectorAll('[data-translate]').forEach(function(elem) {
-        elem.innerHTML = i18next.t(elem.getAttribute('data-translate'));
-      });
-    }
-
-    document.getElementById('ua').addEventListener('click', function() {
-      i18next.changeLanguage('ua', function(err, t) {
-        updateContent();
-      });
+  i18next
+    .use(i18nextBrowserLanguageDetector)
+    .init({
+      debug: true,
+      fallbackLng: 'ua',
+      lng: 'ua',  // Set default language to Ukrainian
+      resources: resources,
+      interpolation: {
+        escapeValue: false // allows HTML in translations
+      }
+    }, function(err, t) {
+      updateContent();
     });
 
-    document.getElementById('eng').addEventListener('click', function() {
-      i18next.changeLanguage('en', function(err, t) {
-        updateContent();
-      });
+  function updateContent() {
+    document.querySelectorAll('[data-translate]').forEach(function(elem) {
+      elem.innerHTML = i18next.t(elem.getAttribute('data-translate'));
     });
+  }
+
+  document.getElementById('ua').addEventListener('click', function() {
+    i18next.changeLanguage('ua', function(err, t) {
+      updateContent();
+    });
+  });
+
+  document.getElementById('eng').addEventListener('click', function() {
+    i18next.changeLanguage('en', function(err, t) {
+      updateContent();
+    });
+  });
+
+  const dropdown = document.querySelector('.dropdown');
+  const dropbtn = document.querySelector('.dropbtn');
+  const links = document.querySelectorAll('.dropdown-content a');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropbtn.innerHTML = this.innerHTML;
+      links.forEach(link => link.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Handle the sliding effect on hover
+  dropdown.addEventListener('mouseenter', function() {
+    const dropdownContent = this.querySelector('.dropdown-content');
+    dropdownContent.style.display = 'block';
+    setTimeout(() => {
+      dropdownContent.style.maxHeight = '300px';
+      dropdownContent.style.opacity = '1';
+    }, 0); // Start transition immediately
+  });
+
+  dropdown.addEventListener('mouseleave', function() {
+    const dropdownContent = this.querySelector('.dropdown-content');
+    dropdownContent.style.maxHeight = '0';
+    dropdownContent.style.opacity = '0';
+    setTimeout(() => {
+      dropdownContent.style.display = 'none';
+    }, 500); // Match the duration of the transition
   });
