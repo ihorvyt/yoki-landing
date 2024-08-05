@@ -211,7 +211,7 @@ function initializeScroller() {
             { x: 300, y: -2.5, width: normanlWidthHeight, od: "px" },
         ],
         mobilePhoneStyles: [
-            { x: -50, y: 55, width: 90, od: "dvw" }, // main
+            { x: -50, y: 65, width: 90, od: "dvw" }, // main
             { x: -20, y: 2.5, width: normanlWidthHeight, od: "px", br: 5 }, // tell
             { x: -50, y: 45, width: 90, od: "dvw" }, // tell 2
             { x: -75, y: 40, width: normanlWidthHeight - normanlWidthHeight * 0.35, od: "px", br: 5 }, // badge
