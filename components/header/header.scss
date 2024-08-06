@@ -164,45 +164,63 @@ header {
     overflow: hidden;
     box-shadow: 0px 0px 20.3px 0px #FF9F38;
     transition: box-shadow 0.3s ease-out;
-
+  
     &::before, &::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        width: 150%;
-        height: 7px;
-        background-color: #FFDDA8;
-        opacity: 0.3;
-        transition: width 1s cubic-bezier(0.19,-0.01, 0, 0.72), transform 1s cubic-bezier(0.19,-0.01, 0, 0.72);
-        z-index: 0;
-        transform-origin: right;
-        transform: rotate(20deg) scaleX(0.1);
+      content: '';
+      position: absolute;
+      top: 100%;
+      width: 150%;
+      height: 7px;
+      background-color: #FFDDA8;
+      opacity: 0.3;
+      transition: width 1s cubic-bezier(0.19, -0.01, 0, 0.72), transform 1s cubic-bezier(0.19, -0.01, 0, 0.72);
+      z-index: 0;
+      transform-origin: right;
+      transform: rotate(20deg) scaleX(0.1);
     }
-
+  
     &::before {
-        right: 0%;
-        transform: translateX(8%) rotate(120deg) scaleX(0.1);
+      right: 0%;
+      transform: translateX(8%) rotate(120deg) scaleX(0.1);
     }
-
+  
     &::after {
-        right: 0%;
-        transform: translateX(0%) rotate(120deg) scaleX(0.1);
+      right: 0%;
+      transform: translateX(0%) rotate(120deg) scaleX(0.1);
     }
-
+  
     &:hover {
-        box-shadow: none;
+      box-shadow: none;
     }
-
+  
     &.active {
-        &::before {
-            transform: translateX(-55%) rotate(120deg) scaleX(1);
-        }
-
-        &::after {
-            transform: translateX(-60%) rotate(120deg) scaleX(1);
-        }
+      &::before {
+        transform: translateX(-55%) rotate(120deg) scaleX(1);
+      }
+  
+      &::after {
+        transform: translateX(-60%) rotate(120deg) scaleX(1);
+      }
     }
-}
+  }
+  
+  @media (max-width: 768px) {
+    .stay-tuned {
+      padding: 1.2vh 2.2vh;
+      font-size: 4vw;
+      border-radius: 20px;
+  
+      &.active {
+        &::before {
+          transform: translateX(-40%) rotate(120deg) scaleX(1);
+        }
+  
+        &::after {
+          transform: translateX(-45%) rotate(120deg) scaleX(1);
+        }
+      }
+    }
+  }
   
 
 
